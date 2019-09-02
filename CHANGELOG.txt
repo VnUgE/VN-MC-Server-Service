@@ -1,15 +1,29 @@
 Vaughn Nugent "VN - Minecraft Server" Service Changelog
 
+V1.0.3
+Fixed: Watchdog disable now works
+Fixed: Default watchdog and backup features are dissabled by default
+Fixed: General grammar/spelling 
+Fixed: Log file adjustments for added features and proper details
+Fixed: Known Watchdog annoyances 
+Fixed: Further stability adjustments
+
+ADDED: Backup v1 ! (Creates a backup of all your server files at the specified interval in the config file) 
+
+CHANGED: Directory Structures have changed to accomodate future changes (possible multi-instance feature)
+
+UPCOMING: Multi server instance support!   
+
 V1.0.2
 Fixed high cpu usage for invalid configurations
 Fixed service crash errors
 
-ADDED: Watchdog V2 engine with logging
+ADDED: Watchdog v2 engine with logging
 ADDED: Runtime directory path command line args
 
 V1.0.1
 BUG FIXES on file creating and installation
 
 ADDED: Logging. A Log.txt file is generated and all process releavant logs are reccorded here.
-ADDED: Service watchdog V1. Service will autostart within the interval specified if the jvm is not running or not running properly
+ADDED: Service Watchdog v1. Service will autostart within the interval specified if the jvm is not running or not running properly
 ADDED: Preloads a configuration file upon install 
