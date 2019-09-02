@@ -1,4 +1,3 @@
-# Welcome to the VN-MC-Server-Service wiki!
 
 The VN-MC Server Service is a service that is intended to run a Minecraft server on a windows based computer with .NET Framework 4.0+ 
 
