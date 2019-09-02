@@ -1,16 +1,19 @@
-When the installer is run, typically the default location is best, but pick a place somewhere in the root file system (c drive) and install the service.
+When the installer is run, typically the default location is best, but pick a place somewhere in the root file system (c drive) and install the service
 
 The VNMinecraft directory defaulted to your c drive is the directory where your server files are stored. 
 (for advanced users, the service exe accepts argument 0, so you can sepcify your custom runtime directory path if you would like to change this directory)
 
 Open File Explorer and go to your c drive.
 You shoud see a folder named VNMinecraft.
+In this directory, you should see 2 more directories and a config file. 
+   The Backups directory is where the backup engine will create your backups 
+   The Minecraft directory is where your Minecraft server instance will be run from
 
-If you have a previous Minecraft server instance, copy all the files to this directory including the server jar file you wish to run.
+If you have a previous Minecraft server instance, copy all the files to the "Minecraft" directory including the server jar file you wish to run.
 
-Once the files have been placed in the directory - open and edit the config.conf file generated in that folder.
+Once the files have been placed in the directory - open and edit the config.conf file generated in the root folder.
 
-Follow the instructions outlined in the config file. Make sure the config file has the same syntax already in the example and there are no spaces in the directives section. The system uses the '=' and the '#' as delimiters so be careful what is between them. 
+Follow the instructions outlined in the conf file. Make sure the conf file has the same syntax already in the example.
 
 After installed and config edited
 
@@ -20,34 +23,29 @@ Type "services.msc"
 
 Scroll down to find "VN MC-Server"
  It should be set to automatic to be run autonomously. Optinally you can select delayed start if you want it to wait some time after startup
+ Right click and start the service
+ Open File Explorer and go to your c drive.
+ You shoud see a folder named VNMinecraft.
+ If you see the folder - right click and stop the service.
 
-If the configuration file has been created properly, start the service and check the Log.txt file generated at startup. You will
-see the results of runtime in this log file. 
- 
- 
-Once the config is correct the Java JVM will be started with your server instance and all should be good.  
-Check the log file, you will see all the process took to run your server along with all the parsed configuration options. The last entry should say something like " Process java with id:xxx is running "
-
-WATCHDOG CONFIG
-  The watchdog V2 will check at the specified interval to confirm the "java" process is running and its id. If the process is not         running during the check, it will attempt to restart the entire sequence as if the service was manually started. A failure threshold     limits the number of times the watchdog will attempt to restart the service. 
-
-  The watchdog configuration has 2 options in your config file. The timer value in seconds is the amount of time the service will wait
-  before checking on the process. The failures value specifies how many concurrent failures can occur before the service will end.
-  Once the failure threshold has been reached, the service will stop attempting to start the jvm and write to the log file. It will 
-  tell you to check the log, check the system and config, then restart the service completely to continue. 
 
 NOTE: 
-  If you are to break the conf file, just delete it, START then STOP the service again and it will generate a new config file. The config file is only read during startup.
+  If you are to break the conf file, just delete it, START then STOP the service again and it will generate a new config file. The config file is only read on startup.
+
+  Once the config is correct the Java JVM will be started with your server instance and all should be good.
+  
+  Check the log file, you will see all the process took to run your server. The last entry should say something like " Process java with id:xxx is running "
 
 NOTE:
-  You may need to update your windows firewall rules for this service
+  You may have to update your windows firewall rules for this service
+
 
 Additional notes
    If you are running 32 bit java binaries, make sure you dont allow more than 4gb of memory to be used and set x64 to false
    
    Personally for windows firewall I prefer force binding the port to the java appliction instead of opening a tcp port to windows for apps to listen on
 
-   DO NOT DELETE THE PROGRAM FOLDER!! If you do, the uninstaller will fail and you wont be able to repair it, you will have to use .NET service tools to remove it. 
+   DO NOT DELETE THE PROGRAM FOLDER!! If you do, the uninstaller will fail and you wont be able to repair it, you will have to use service delete to remove it. 
 
    This service uses the Local SYSTEM security account, so typically you shouldnt have issues with security. 
 
