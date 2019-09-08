@@ -16,7 +16,7 @@ The VN-MC Server Service is a service that is intended to run a Minecraft server
 
 * Watchdog prevents a restart loop if there are configuration or system errors
 
-* Detailed log file containing all serive relevant information
+* Detailed log file containing all server relevant information
 
 * Full backup of all server files automatically based on the given interval
 
