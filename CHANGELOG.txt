@@ -1,5 +1,33 @@
 Vaughn Nugent "VN - Minecraft Server" Service Changelog
 
+V1.1.0
+**Notice: Complete design change.**
+
+CHANGED: Full architectural changes to interal classes
+CHANGED: Java instance is now run as a managed process within the service, this allows for better control and event managment along with easy update abilties in the future. 
+CHANGED: Logging and backup logging (Backup log file renamed to Backup.txt)
+CHANGED: Less details in the backup log (Only errors will be logged along with start and completion logs)
+CHANGED: Error even handling and pre-checks
+CHANGED: Watchdog and restart handling full change
+CHANGED: Smarter detecting errors in configuration and system and handling them properly
+CHANGED: Full cleanup for security and preformance on shutdown
+
+ADDED: Java and minecraft file verification and logging
+ADDED: JVM version verification to make sure java is the program is run-able/running
+ADDED: Better default java arguments for minecraft
+ADDED: Infinite auto restart-ability
+ADDED: Configuration file awarness and default options - Backwards compatible config file (not ideal but be aware if there are errors)
+ADDED: Machine shutdown awareness (Will create a full backup when the host machine calls for shutdown)
+
+UNCHANGED: Directory structure is identical to V1.0.3+ but checks are performed on directory structure on each startup 
+
+UPCOMING: Multi server instance support... sometime soon   
+
+
+V1.0.4 *Not released
+Fixed: Updated JVM options and auto restart
+
+
 V1.0.3
 Fixed: Watchdog disable now works
 Fixed: Default watchdog and backup features are dissabled by default
